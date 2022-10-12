@@ -7,8 +7,8 @@
 
 ## Code Samples 🌽
 - Alpaca Shearing Minigame
-  - <a href="" target="_blank">UI Controller</a>
-  - <a href="" target="_blank">Draggable Items</a>
+  - <a href="https://github.com/dayahh/PacaPomo-codeEx/blob/main/ShearingMinigameUIController" target="_blank">UI Controller</a>
+  - <a href="https://github.com/dayahh/PacaPomo-codeEx/blob/main/Draggable" target="_blank">Draggable Items</a>
 
 ## Gameplay 🌽
 ![gameplay gif1](gameplay1.gif) ![gameplay gif2](gameplay2.gif) 
