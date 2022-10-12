@@ -1,0 +1,56 @@
+public class ShearingMinigameUIController : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI pointsText;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void ChangeTime(float time)
+    {
+        SetTimerText(time.ToString("#"));
+        // if (isFinished)
+        // {
+        //     timerText.color = finishedTimerTextColor;
+        // }
+        // else
+        // {
+        //     timerText.color = defaultTimerTextColor;
+        // }
+    }
+
+    private void SetTimerText(string currentTime)
+    {
+        timerText.text = currentTime; //TODO: when the text hits the num 0 it appears blank
+    }
+
+    public void ChangePoints(float points)
+    {
+        SetPointsText(points.ToString("#"));
+        // if (isFinished)
+        // {
+        //     timerText.color = finishedTimerTextColor;
+        // }
+        // else
+        // {
+        //     timerText.color = defaultTimerTextColor;
+        // }
+    }
+
+    private void SetPointsText(string currentPoints)
+    {
+        pointsText.text = currentPoints;
+    }
+
+
+}
