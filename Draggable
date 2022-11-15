@@ -43,7 +43,6 @@ public class Draggable : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            // Move the tool if the screen has the finger moving.
             if (touch.phase == TouchPhase.Moved)
             {
                 Vector2 pos = touch.position;
@@ -51,7 +50,6 @@ public class Draggable : MonoBehaviour
                 pos.y = (pos.y - height) / height;
                 position = new Vector3(-pos.x, pos.y, 0.0f);
 
-                // Position the tool.
                 transform.position = position;
             }
         }
