@@ -3,7 +3,7 @@
 
 *PacaPomo is an alpaca farming-simumator that utilizes an in-game pomodoro for productiveness.*
 
-*Development for PacaPomo began in summer 2022, and wrapped up for early access in August 2024. This is a project produced by <a href="https://gameheadsoakland.org/" target="_blank">Gameheads</a> students. Adaya is a gameplay engineer and her contributions to this project consisted primarily of gameplay and UI mechanics.*
+*Development for PacaPomo began in summer 2022, and wrapped up for early access in August 2024. This is a project produced by <a href="https://gameheadsoakland.org/" target="_blank">Gameheads</a> students. Adaya was a gameplay engineer and her contributions to this project consisted primarily of gameplay and UI mechanics. **Play the demo on [itch.io](https://pacapomo.itch.io/pacapomo) and [Steam](https://store.steampowered.com/app/2921870/PacaPomo/)!***
 
 ## Code Samples 🌽
 - Alpaca Shearing Minigame
