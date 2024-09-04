@@ -1,0 +1,97 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+public class CookbookPopup : MonoBehaviour
+{
+    public GameObject recipeButtonPrefab;
+    public GameObject gridHolder;
+    private CookbookGridButton LastClickedRecipeButton;
+    private List<CookbookGridButton> gridButtonList = new List<CookbookGridButton>();
+
+    private FarmScene farmScene;
+    
+    //section to grab recipe info
+    public Image recipeIcon;
+    public TextMeshProUGUI recipeName;
+    public TextMeshProUGUI recipeDesc;
+    private RecipeSO recipeStats;
+    public TextMeshProUGUI timesCookedStatement;
+    public List<RecipeItems> recipeItems = new List<RecipeItems>();
+    
+    public void Initialize()
+    {
+        if (gridHolder.transform.childCount == 0)
+        {
+            foreach (var recipeData in GameWizard.Instance.recipeCatalog.GetAllPossibleRecipes())
+            {
+                GameObject newRecipeButton = Instantiate(recipeButtonPrefab, gridHolder.transform);
+                CookbookGridButton gridButton = newRecipeButton.GetComponent<CookbookGridButton>();
+                gridButton.Initialize(recipeData);
+                gridButton.highlight.SetActive(false);
+                gridButtonList.Add(gridButton);
+                gridButton.OnCookbookButtonClicked += RenewData;
+                gridButton.OnCookbookButtonClicked += UpdateHighlight;
+
+                if (GameWizard.Instance.recipeCatalog.GetAllPossibleRecipes().IndexOf(recipeData) == 0)
+                {
+                    LastClickedRecipeButton = gridButton;
+                    recipeStats = recipeData;
+                }
+
+            }
+        }
+        
+        UpdatePanel();
+    }
+    
+    protected void UpdatePanel()
+    {
+        if (!recipeStats)
+        {
+            return;
+        }
+        
+        var ingredients = recipeStats.GetIngredientsList();
+    
+        recipeIcon.sprite = recipeStats.recipeSprite;
+        recipeName.text = recipeStats.recipeName;
+        recipeDesc.text = recipeStats.description;
+        timesCookedStatement.text = PPHelp.GW.minigameManager.GetRecipeHighScore(recipeStats).finishCount + " times cooked";  
+
+        for (int i = 0; i < ingredients.Count; i++){
+            recipeItems[i].imageHolder.sprite = ingredients[i].itemSprite;
+            recipeItems[i].ingredientName.text = ingredients[i].GetName();
+
+            if(PPHelp.GW.minigameManager.GetRecipeHighScore(recipeStats).finishCount == 0){
+                recipeItems[i].ingredientName.text = "";
+                recipeItems[i].imageHolder.sprite = recipeStats.recipeSpriteLocked;
+            }
+        }
+
+        
+    }
+
+    public void OnEnable()
+    {
+        UpdatePanel();
+    }
+
+    public void RenewData(CookbookGridButton gridButton)
+    {
+        recipeStats = gridButton.GetRecipeSO();
+        UpdatePanel();
+    }
+
+    private void UpdateHighlight(CookbookGridButton gridButton){
+        if(gridButton != LastClickedRecipeButton){
+            LastClickedRecipeButton.highlight.SetActive(false);
+        }
+        LastClickedRecipeButton = gridButton;
+        LastClickedRecipeButton.highlight.SetActive(true);
+    }
+
+}
