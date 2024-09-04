@@ -1,0 +1,51 @@
+using UnityEngine;
+using TMPro;
+using System;
+using UnityEngine.UI;
+
+public class CookbookGridButton : MonoBehaviour
+{
+    public Image imageHolder;
+    public TextMeshProUGUI recipeName;
+    private RecipeSO recipe;
+    public event Action<CookbookGridButton> OnCookbookButtonClicked;
+    public GameObject highlight;
+    public Button button; 
+
+    public void CookbookButtonClicked(CookbookGridButton gridButton){
+        OnCookbookButtonClicked?.Invoke(this);
+    }
+
+    public void CallAlpacaButtonClicked(){
+        CookbookButtonClicked(this);
+    }
+
+    public Button GetButton()
+    {
+        return button;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void Initialize(RecipeSO recipeSO)
+    {
+        recipe = recipeSO;
+        imageHolder.sprite = recipeSO.recipeSprite;
+        recipeName.text = recipeSO.recipeName;
+    }
+
+    public RecipeSO GetRecipeSO(){
+        return recipe;
+    }
+
+}
