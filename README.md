@@ -14,8 +14,14 @@
   - <a href="https://github.com/dayahh/PacaPomo-codeEx/blob/main/CookbookGridButton" target="_blank">CookBook Grid Button</a>
 
 ## Gameplay 🌽
+![work](https://github.com/user-attachments/assets/0e835c5b-9779-4988-9944-89c73e1c20f5)
+
+*(pre-2024)*
+
 ![gameplay gif1](gameplay1.gif) ![gameplay gif2](gameplay2.gif) 
 
 
 ## In-Game Screenshots 🌽
+*(pre-2024)*
+
 ![screenshot](sc1.png) ![screenshot](sc2.png) 
